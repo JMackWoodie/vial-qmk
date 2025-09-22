@@ -22,9 +22,9 @@
 
 enum layers{
     BASE,
-    MOUSE,
-    RGB,
-    FN
+    LAYER1,
+    LAYER2,
+    LAYER3
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
