@@ -18,9 +18,6 @@
 #include QMK_KEYBOARD_H
 #include "keychron_common.h"
 
-#define KC_TASK LGUI(KC_TAB)
-#define KC_FLXP LGUI(KC_E)
-
 // clang-format off
 
 enum layers{
@@ -38,26 +35,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         MC_2,              KC_TAB,             KC_Q,       KC_W,       KC_E,       KC_R,       KC_T,       KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       KC_LBRC,    KC_RBRC,    KC_BSLS,                KC_PGUP,
         MC_3,              LT(MOUSE,KC_CAPS),  KC_A,       KC_S,       KC_D,       KC_F,       KC_G,       KC_H,       KC_J,       KC_K,       KC_L,       KC_SCLN,    KC_QUOT,                 KC_ENT,                 KC_PGDN,
         MC_4,              KC_LSFT,                        KC_Z,       KC_X,       KC_C,       KC_V,       KC_B,       KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_SLSH,                 KC_RSFT,    KC_UP,
-        MC_5,              KC_LCTL,            KC_LGUI,    KC_LALT,    MO(FN),                KC_SPC,                              KC_SPC,                  MT(KC_RALT,KC_APP),MO(RGB),KC_RCTL,  KC_LEFT,    KC_DOWN,    KC_RGHT),
+        MC_5,              KC_LCTL,            KC_LGUI,    KC_LALT,    MO(LAYER3),                KC_SPC,                              KC_SPC,                  MT(KC_RALT,KC_APP),MO(LAYER2),KC_RCTL,  KC_LEFT,    KC_DOWN,    KC_RGHT),
 
-    [MOUSE] = LAYOUT_91_ansi(
+    [LAYER1] = LAYOUT_91_ansi(
         _______,           _______,         _______,       _______,        _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,   _______,   _______,   _______,   _______,   _______,
         _______,           _______,         _______,       _______,        _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,   _______,   _______,   _______,              _______,
-        _______,           _______,         _______,       _______,        _______,    _______,    KC_WH_U,    KC_BTN1,    KC_MS_U,    KC_BTN2,    _______,    _______,   _______,   _______,   _______,              KC_HOME,
-        _______,           _______,         LSA(KC_Z),     LSA(KC_X),      _______,    _______,    KC_WH_D,    KC_MS_L,    KC_MS_D,    KC_MS_R,    KC_BTN1,    _______,   _______,              _______,              KC_END,
-        _______,           _______,         C(G(KC_LEFT)), C(G(KC_RIGHT)), _______,    _______,    _______,    KC_BTN5,    KC_BTN3,    KC_BTN4,    _______,   _______,              _______,   _______,
-        _______,           _______,         _______,       _______,        MO(FN),                _______,                              _______,                 _______,    MO(RGB),    _______,   _______,   _______,   _______),
+        _______,           _______,         _______,       _______,        _______,    _______,    _______,    KC_WH_U,    KC_BTN1,    KC_MS_U,    KC_BTN2,    _______,    _______,   _______,   _______,             KC_HOME,
+        _______,           _______,         LALT(KC_LBRC), LSA(KC_RBRC),   _______,    _______,    _______,    KC_WH_D,    KC_MS_L,    KC_MS_D,    KC_MS_R,    KC_BTN1,    _______,   _______,                         KC_END,
+        _______,           _______,         LSA(KC_Z),     LSA(kC_X),      _______,    _______,    _______,    _______,    KC_BTN5,    KC_BTN3,    KC_BTN4,    _______,   _______,              _______,
+        _______,           _______,         _______,       _______,        MO(LAYER3),                _______,                              _______,                 _______,    MO(LAYER2),    _______,   _______,   _______,   _______),
 
-    [RGB] = LAYOUT_91_ansi(
+    [LAYER2] = LAYOUT_91_ansi(
         _______,           _______,            _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,   _______,   CG_TOGG,   _______,   _______,   _______,
         _______,           _______,            _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,   _______,   _______,   _______,              _______,
-        _______,           RGB_TOG,            RGB_VAI,    RGB_SPI,    RGB_HUI,    RGB_SAI,    _______,    _______,    _______,    _______,    _______,    _______,   _______,   _______,   _______,              _______,
-        _______,           RGB_MOD,            RGB_VAD,    RGB_SPD,    RGB_HUD,    RGB_SAD,    _______,    _______,    _______,    _______,    _______,    _______,   _______,              _______,              _______,
-        _______,           _______,                        RGB_M_P,    RGB_M_B,    RGB_M_R,    RGB_M_SW,   _______,    _______,    _______,    _______,    _______,   _______,              _______,   _______,
+        _______,           _______,           RGB_TOG,            RGB_VAI,    RGB_SPI,    RGB_HUI,    RGB_SAI,    _______,    _______,    _______,    _______,    _______,    _______,   _______,   _______,   _______,
+        _______,           _______,           RGB_MOD,            RGB_VAD,    RGB_SPD,    RGB_HUD,    RGB_SAD,    _______,    _______,    _______,    _______,    _______,    _______,   _______,              _______,
+        _______,           _______,           _______,                        RGB_M_P,    RGB_M_B,    RGB_M_R,    RGB_M_SW,   _______,    _______,    _______,    _______,    _______,   _______,              _______,
         _______,           _______,            _______,    _______,    _______,                _______,                             _______,                 _______,    _______,   _______,   _______,   _______,   _______),
 
-    [FN] = LAYOUT_91_ansi(
-        _______,           KC_BRID,            KC_BRIU,    KC_TASK,    KC_FLXP,    RGB_VAD,    RGB_VAI,    KC_MPRV,    KC_MPLY,    KC_MNXT,    KC_MUTE,    KC_VOLD,   KC_VOLU,   QK_BOOT,   _______,   _______,   _______,
+    [LAYER3] = LAYOUT_91_ansi(
+        _______,           KC_BRID,            KC_BRIU,    KC_TASK,    KC_FLXP,    RGB_VAD,    RGB_VAI,    KC_MPRV,    KC_MPLY,    KC_MNXT,    KC_MUTE,    KC_VOLD,   KC_VOLU,   QK_BOOT,   _______,   _______,
         _______,           _______,            _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,   _______,   _______,   _______,              _______,
         _______,           _______,            _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,   _______,   _______,   _______,              _______,
         _______,           _______,            _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,   _______,              _______,              _______,
@@ -68,9 +65,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #if defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
     [BASE]  = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
-    [MOUSE] = { ENCODER_CCW_CW(KC_MPRV, KC_MNXT), ENCODER_CCW_CW(KC_MPRV, KC_MNXT) },
-    [RGB]   = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
-    [FN]    = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) }
+    [LAYER1] = { ENCODER_CCW_CW(KC_MPRV, KC_MNXT), ENCODER_CCW_CW(KC_MPRV, KC_MNXT) },
+    [LAYER2]   = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
+    [LAYER3]    = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) }
 };
 #endif // ENCODER_MAP_ENABLE
 
